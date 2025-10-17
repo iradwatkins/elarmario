@@ -4,54 +4,54 @@
 
 @layer base {
   :root {
-    --background: #f7f9fa;
-    --foreground: #333333;
-    --card: #ffffff;
-    --card-foreground: #333333;
-    --popover: #ffffff;
-    --popover-foreground: #333333;
-    --primary: #ffc0cb;
-    --primary-foreground: #000000;
-    --secondary: #87ceeb;
-    --secondary-foreground: #000000;
-    --muted: #ddd9c4;
-    --muted-foreground: #6e6e6e;
-    --accent: #ffff00;
-    --accent-foreground: #000000;
-    --destructive: #ef4444;
-    --destructive-foreground: #ffffff;
-    --border: #d4d4d4;
-    --input: #d4d4d4;
-    --ring: #ffc0cb;
+    --background: 200 20% 98%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 350 100% 88%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 197 71% 73%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 46 22% 84%;
+    --muted-foreground: 0 0% 43%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 83%;
+    --input: 0 0% 83%;
+    --ring: 350 100% 88%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: #1a1d23;
-    --foreground: #e5e5e5;
-    --card: #2f3436;
-    --card-foreground: #e5e5e5;
-    --popover: #2f3436;
-    --popover-foreground: #e5e5e5;
-    --primary: #ff99cc;
-    --primary-foreground: #000000;
-    --secondary: #33cc33;
-    --secondary-foreground: #000000;
-    --muted: #444444;
-    --muted-foreground: #a3a3a3;
-    --accent: #87ceeb;
-    --accent-foreground: #000000;
-    --destructive: #ef4444;
-    --destructive-foreground: #ffffff;
-    --border: #444444;
-    --input: #444444;
-    --ring: #ff99cc;
+    --background: 222 14% 13%;
+    --foreground: 0 0% 90%;
+    --card: 210 5% 20%;
+    --card-foreground: 0 0% 90%;
+    --popover: 210 5% 20%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 330 100% 80%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 120 60% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 27%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 197 71% 73%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 27%;
+    --input: 0 0% 27%;
+    --ring: 330 100% 80%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
     @apply bg-background text-foreground;
