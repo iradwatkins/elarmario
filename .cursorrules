@@ -1,0 +1,131 @@
+# Project Rules for Website Development
+
+## Code Quality & Style
+- Write clean, readable code with consistent formatting
+- Use TypeScript for type safety where applicable
+- Add comments only for complex logic; keep code self-documenting
+- Use meaningful, descriptive names for files, variables, and functions
+- Follow existing code style and conventions in the project
+
+## Project Structure
+- Keep components modular and reusable
+- Maintain clear folder structure: /components, /app, /lib, /utils
+- One component per file, focused on single responsibility
+- Group related files together
+
+## Web Development Standards
+- Mobile-first, responsive design by default
+- Use semantic HTML for accessibility
+- Implement proper error handling and loading states
+- Optimize images and assets before adding them
+- Include SEO best practices (meta tags, proper heading hierarchy)
+- Validate and sanitize all user inputs
+
+## Dependencies & Configuration
+- Keep dependencies minimal and justified
+- Never hard-code values - use constants or config files
+- Use environment variables for all sensitive configuration
+- Never commit API keys, credentials, or sensitive data
+
+## Git Practices
+- Write clear, descriptive commit messages
+- Review all changes before committing
+- Don't commit node_modules, build artifacts, or IDE configs
+
+## Performance
+- Consider lazy loading and code splitting
+- Minimize bundle size
+- Optimize for Core Web Vitals
+
+## Communication
+- Explain reasoning for technical decisions
+- Ask clarifying questions when requirements are unclear
+- Point out potential issues, trade-offs, or security concerns
+- Suggest improvements when you see opportunities
+
+## El Armario Specific Rules
+
+### Strict Port Assignments (NO OTHER PORTS ALLOWED)
+
+| Service       | Port | Container Name     | NEVER Use |
+|---------------|------|--------------------|-----------|
+| Next.js App   | 3012 | N/A (systemd)      | 3000      |
+| PostgreSQL    | 5440 | elarmario-postgres | 5432      |
+| Redis         | 6310 | elarmario-redis    | 6379      |
+| MinIO API     | 9012 | elarmario-minio    | -         |
+| MinIO Console | 9112 | elarmario-minio    | -         |
+
+**CRITICAL**: If you need ANY service not listed, STOP and ask user for permission
+
+### Tech Stack
+- **Framework:** Next.js 15 with App Router
+- **Styling:** Tailwind CSS with Candyland theme
+- **Database:** PostgreSQL on port 5440 (elarmario)
+- **Cache/Session:** Redis on port 6310 (elarmario-redis)
+- **Storage:** MinIO on port 9012 (elarmario-minio)
+- **Auth:** Clerk
+- **Email:** Resend
+
+---
+
+## 🎭 BMAD Method Agent System
+
+This project uses BMAD-METHOD™ for AI-driven development. Cursor AI should become the appropriate BMAD agent based on task type.
+
+### Agent Selection Guide
+
+**When user requests:**
+
+- **UI/UX Design** → Load `@ux-expert` (Sally)
+  - Triggers: "design UI", "wireframes", "components", "user experience"
+  - Use shadcn-ui for components
+  - Reference `.claude/candyland-theme.md` for colors
+
+- **Architecture** → Load `@architect` (Winston)
+  - Triggers: "system design", "architecture", "tech stack", "database schema"
+  - Reference `.claude/README.md` for existing architecture
+  - Use `.bmad-core/templates/` for structure
+
+- **Development** → Load `@dev` (James)
+  - Triggers: "implement", "code", "build", "fix bug", "develop"
+  - Follow story tasks sequentially
+  - ONLY update Dev Agent Record sections in stories
+  - Use Playwright for testing
+
+- **Story Creation** → Load `@sm` (Scrum Master)
+  - Triggers: "create story", "user story", "sprint planning"
+  - Read from `docs/prd/` sharded files
+  - Use `.bmad-core/templates/story-tmpl.yaml`
+
+- **Testing/QA** → Load `@qa`
+  - Triggers: "review code", "test", "quality check", "refactor"
+  - Use Playwright for E2E tests
+  - Append results to story QA section
+
+- **Research** → Load `@analyst`
+  - Triggers: "research", "market analysis", "competitive analysis"
+  - Use web tools for data gathering
+
+### BMAD Resources
+- **Agents**: `.bmad-core/agents/`
+- **Tasks**: `.bmad-core/tasks/`
+- **Templates**: `.bmad-core/templates/`
+- **Config**: `.bmad-core/core-config.yaml`
+
+### Critical BMAD Rules
+- ALWAYS use `@sm` for story creation (never bmad-master)
+- ALWAYS use `@dev` for implementation (never bmad-master)
+- Start fresh chat when switching between SM → Dev → QA
+- Load BMAD resources at runtime, not on activation
+- Maintain El Armario context (port 3012, database, theme) across all agents
+
+### Workflow Pattern
+1. **Planning**: Use @architect, @pm, @ux-expert
+2. **Development**: @sm creates story → @dev implements → @qa reviews
+3. **Testing**: @qa with Playwright on port 3012
+
+### Port Reminders for All Agents
+- Next.js: localhost:3012
+- PostgreSQL: localhost:5440
+- Redis: localhost:6310
+- MinIO: localhost:9012 (console: 9112)

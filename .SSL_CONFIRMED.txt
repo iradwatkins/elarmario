@@ -1,0 +1,16 @@
+✅ SSL Certificate Installed for elarmario.com.do
+
+Certificate Details:
+- Domain: elarmario.com.do
+- Expiry Date: 2026-01-07 (89 days remaining)
+- Certificate Path: /etc/letsencrypt/live/elarmario.com.do/fullchain.pem
+- Private Key Path: /etc/letsencrypt/live/elarmario.com.do/privkey.pem
+- Auto-renewal: Enabled (certbot will renew automatically)
+
+HTTPS Status: ✅ Active
+- http://elarmario.com.do → Redirects to https://elarmario.com.do
+- www.elarmario.com.do → Redirects to https://elarmario.com.do
+
+Nginx Configuration: /etc/nginx/sites-available/elarmario.com.do
+
+Note: Certificate will auto-renew approximately 30 days before expiration.
